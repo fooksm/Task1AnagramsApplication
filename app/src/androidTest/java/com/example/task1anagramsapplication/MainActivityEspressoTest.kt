@@ -1,6 +1,5 @@
 package com.example.task1anagramsapplication
 
-import android.app.Activity
 import android.content.Intent
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ApplicationProvider
@@ -23,7 +22,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 class MainActivityEspressoTest {
-    @Rule
+    @get:Rule
     lateinit var scenario: ActivityScenario<MainActivity>
     @Test
     fun ensureTextChangesWork() {
@@ -47,7 +46,6 @@ class MainActivityEspressoTest {
         )
         Espresso.onView(withId(R.id.convertButton)).perform(click())
 
-        // This view is in a different Activity, no need to tell Espresso.
         Espresso.onView(withId(R.id.displayTextView)).check(matches(withText("NewText")))
     }
     companion object {
