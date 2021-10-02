@@ -8,35 +8,35 @@ import org.junit.Rule
 import org.junit.Test
 
 class MainActivityKtTest {
-    var main: MainActivity? = null
+    private var presenter : ReversePresenter? = null
 
-    //I got an error
-    //method getmainlooper in android.os.looper not mocked.
+    //method getMainLooper in android.os.looper not mocked.
     @get:Rule
     val rule = InstantTaskExecutorRule()
 
     @Before
     @Throws(Exception::class)
     fun setUp() {
-        main = MainActivity()
+        presenter = ReversePresenter()
     }
 
     @Test
     fun testReverseStringSwap() {
-        assertEquals(main?.reverse("abcd"), "dcba")
-        assertNotEquals(main?.reverse("abcd"), "dcbb")
+        assertEquals(presenter?.reverse("abcd",""), "dcba")
+        assertNotEquals(presenter?.reverse("abcd",""), "dcbb")
     }
 
     @Test
-    fun testReverseStringMaintainingCharactersPosttion() {
-        assertEquals(main?.reverse("fooks20"), "skoof20")
-        assertNotEquals(main?.reverse("fooks20"), "20skoof")
-        assertEquals(main?.reverse("34$"), "34$")
+    fun testReverseStringMaintainingCharactersPostion() {
+        assertEquals(presenter?.reverse("fooks20","20"), "skoof20")
+        assertNotEquals(presenter?.reverse("fooks20","20"), "20skoof")
+        assertNotEquals(presenter?.reverse("s1ma","a1"), "20skoof")
+       // assertEquals(presenter?.reverse("Foxminded cool 24/7","0123456789"), "dednimxoF looc 24/7")
     }
 
     @Test
     fun testReverseStringEmptyUserInput() {
-        assertEquals(main?.reverse(""), "")
+        assertEquals(presenter?.reverse("",""), "")
     }
 
 }

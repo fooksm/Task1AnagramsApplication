@@ -40,7 +40,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         android:autofillHints="@string/type_a_word"/>
-
+    <EditText
+        android:id="@+id/wordEditTextEscapechars"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:hint="Characters to escape"
+        style="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/design_default_color_primary"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="@dimen/material_filled_edittext_font_1_3_padding_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wordEditText"
+        android:autofillHints="@string/type_a_word"/>
     <TextView
         android:id="@+id/displayTextView"
         android:layout_width="match_parent"
@@ -53,7 +71,7 @@
         android:textSize="@dimen/material_filled_edittext_font_1_3_padding_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wordEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/wordEditTextEscapechars" />
 
     <Button
         android:id="@+id/convertButton"
