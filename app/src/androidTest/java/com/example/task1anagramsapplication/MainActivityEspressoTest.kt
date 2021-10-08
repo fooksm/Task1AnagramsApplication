@@ -49,4 +49,16 @@ class MainActivityEspressoTest {
         //notice that the string is reversed in caps
         Espresso.onView(withId(R.id.displayTextView)).check(matches(withText("TXETWEN")))
     }
+
+    @Test
+    fun veryEmptyTextVerifyWithTextView() {
+        // Type text and then press the button.
+        Espresso.onView(withId(R.id.wordEditText)).perform(
+            ViewActions.typeText(""),
+            closeSoftKeyboard()
+        )
+        Espresso.onView(withId(R.id.convertButton)).perform(click())
+        //notice that the string is reversed in caps
+        Espresso.onView(withId(R.id.displayTextView)).check(matches(withText("INVALID INPUT")))
+    }
 }
