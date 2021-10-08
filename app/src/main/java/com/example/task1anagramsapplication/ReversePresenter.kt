@@ -11,10 +11,10 @@ class ReversePresenter
      * @param charactersToEscape characters the user wants to escape
      */
     fun reverse(userInput :String,charactersToEscape :String): String {
-        val str = userInput.toCharArray()
-        val str2 = charactersToEscape.toCharArray()
+        val userInputStr = userInput.toCharArray()
+        val charactersToEscapeStr = charactersToEscape.toCharArray()
         // Initialize left and right traversal
-        var right = str.size - 1
+        var right = userInputStr.size - 1
         var left = 0
 
         // Traverse string from both ends until
@@ -22,17 +22,17 @@ class ReversePresenter
         while (left < right) {
             // Ignore special characters from user
             when {
-                str2.contains(str[left]) -> left++
-                charactersToEscape.contains(str[right]) -> right--
+                charactersToEscapeStr.contains(userInputStr[left]) -> left++
+                charactersToEscapeStr.contains(userInputStr[right]) -> right--
                 else -> {
-                    val tmp = str[left]
-                    str[left] = str[right]
-                    str[right] = tmp
+                    val tmp = userInputStr[left]
+                    userInputStr[left] = userInputStr[right]
+                    userInputStr[right] = tmp
                     left++
                     right--
                 }
             }
         }
-        return String(str)
+        return String(userInputStr)
     }
 }
